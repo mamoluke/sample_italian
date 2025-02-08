@@ -1,0 +1,89 @@
+/* style.css */
+
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+  cursor: none; /* ブラウザのデフォルトカーソルを非表示に */
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* 背景オーバーレイ（全画面固定） */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFF0; /* 初期はアイボリー */
+  transition: background-color 1s ease;
+  z-index: -1;
+}
+
+/* カスタムカーソル */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+  z-index: 1000;
+}
+
+/* セクション設定 */
+.section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* セクション内コンテンツの最大幅設定 */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* タイポグラフィ */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* 表示時に動きを与えるテキスト（初期状態） */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* visible クラス付与で表示・上昇 */
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
